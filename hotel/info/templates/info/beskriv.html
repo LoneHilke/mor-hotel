@@ -4,4 +4,45 @@
     <h3>- Alle værelser er i stueplan<h3>
         <h3>- Der er fælles bad på gangen<h3>
             <h3>- Vasketøj bliver kun vasket, hvis det bliver sorteret</h3>
+            <div class="container mb-5">
+                <h2><b><i><u>Beskrivelse af værelser</u></i></b></h2>
+                <h6></h6>
+                <div class="row justify-content-center mt-1">
+                  <div class="col-md-12 col-sm-12 p-4">
+
+                    <div class="row">
+
+                      <!--<div class="col-sm-6">-->
+                        <div class="row g-0">
+
+                        {% for beskri in beskrivelse %}
+
+                          <div class="card-header">
+                            <div class='card w-30'>
+                              <div class="row g-0">
+                                <div class="col-md-4">
+                                  <div class="card" style="width: 18rem;">
+                                    <div class="col-md-2 col-sm-12">
+                                      
+                                    </div> 
+                                      <div class="card-body">
+                                        <h5><b><u>Navn: </u></b></h5>
+                                        <h5 class="card-title">{{beskri.str}}</h5>
+                                        <h5><b><u>Beskrivelse: </u></b></h5>
+                                        <p class="card-text">{{beskri.belig}}</p>
+                                        
+
+                                      </div>
+                                  </div>
+                                </div>
+                              </div><!---->
+                            </div>
+                          </div>
+
+                          {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 {% endblock %}
