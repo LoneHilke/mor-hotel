@@ -30,6 +30,35 @@
                                         <h5 class="card-title">{{beskri.str}}</h5>
                                         <h5><b><u>Beskrivelse: </u></b></h5>
                                         <p class="card-text">{{beskri.belig}}</p>
+
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                         Se mere
+                                        </button>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{beskri.beskrivelse}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                                                
+                                                <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                                                <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                                                <!--<button type="button" class="btn btn-primary">Gem</button>-->
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
                                         
 
                                       </div>
