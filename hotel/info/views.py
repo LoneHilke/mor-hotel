@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Beskrivelse, Reservation, Dinner
+from .models import Beskrivelse, Reservation, Dinner, Oplev
 
 # Create your views here.
 class Index(View):
@@ -14,10 +14,21 @@ class Info(View):
 class Beskriv(View):
   def get(self, request, *args, **kwargs):
 
-    beskrivelse = Beskrivelse.objects.all
+    beskrivelse = Beskrivelse.objects.all()
     context = {
 
         'beskrivelse':beskrivelse,
       } 
 
     return render(request, 'info/Beskriv.html', context)
+  
+class Oplev(View):
+    def get(self, request, *args, **kwargs):
+         
+         oplev = Oplev.objects.all()
+         context = {
+
+           'oplev':oplev,
+         }
+     
+         return render(request, 'info/oplev.html', context)

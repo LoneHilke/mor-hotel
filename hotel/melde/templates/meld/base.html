@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+      <html>
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width", inital-scale=1.0, shrink-to-fit=no">
+            <title>Censor</title>
+
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+          </head>
+          <body>
+             <div class="container mb-3">
+            <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-success rounded-pill shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+     
+     
+       <button class="nav-link rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'melde' %}">Sign up</a></button>
+        <button class="nav-link rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'komind' %}">Login</a></button>
+        <button class="nav-link rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="/">Home</a></button></ul> <h1><i><b><u>Log in</u></b></i></h1>
+        <h4></h4>
+        <img src = https://cdn-icons-gif.flaticon.com/6569/6569164.gif
+          width="200"
+          height="200"
+          style="float:center;"
+          >
+        <form method="POST">
+          {% csrf_token %}
+        <center><font color=green><h1><b><u><i>Velkommen til Censor app</i></u></b></h1></font>
+        <font color=red><h3>Her i appen kan du insætte en censor, anmode om en censor, se om der er en i det fag du mangler til eller om den dato du mangler en censor til passer med andre. Der er også mulighed for at skrive mail inde i kontakt.</h3></font>
+        <h3>Hvis du er censor, leder eller har brug for en censor, så er du velkommen til at at logge in</h3>
+        <h3>God fornøjelse</h3></center>
+<h4></h4>
+<h4></h4>
+<h4></h4>
+        <h4> </h4>
+<h4> </h4>
+
+
+<h4></h4>
+
+<h4></h4>
+
+
+      </div>
+
+    
+       <h4></h4>
+    </body>
+</html>

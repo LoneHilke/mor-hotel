@@ -1,0 +1,83 @@
+{% extends 'info/base.html' %}
+{% block content %}
+<h1><b><u>Beskrivelse af værelser</u></b><h1>
+    <h3>- Alle værelser er i stueplan<h3>
+        <h3>- Der er fælles bad på gangen<h3>
+            <h3>- Vasketøj bliver kun vasket, hvis det bliver sorteret</h3>
+            <div class="container mb-5">
+                <h2><b><i><u>Beskrivelse af værelser</u></i></b></h2>
+                <h6></h6>
+                <div class="row justify-content-center mt-1">
+                  <div class="col-md-12 col-sm-12 p-4">
+
+                    <div class="row">
+
+                      <!--<div class="col-sm-6">-->
+                        <div class="row g-0">
+
+                        {% for opl in oplev %}
+
+                          <div class="card-header">
+                            <div class='card w-30'>
+                              <div class="row g-0">
+                                <div class="col-md-4">
+                                  <div class="card" style="width: 18rem;">
+                                    <div class="col-md-2 col-sm-12">
+                                      
+                                    </div> 
+                                      <div class="card-body">
+                                        <h5><b><u>Navn: </u></b></h5>
+                                        <h5 class="card-title">{{opl.afstand}}</h5>
+                                        <h5><b><u>Beskrivelse: </u></b></h5>
+                                        <p class="card-text">{{opl.beskriv}}</p>
+                                        <img class="rounded" src="{{ opl.foto.url }}" width="100" height="150"/>
+
+                                        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                         Se mere
+                                        </button>-->
+                                        
+                                        <!-- Modal 
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{beskri.beskrivelse}}</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                                                
+                                                <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                                                <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>-->
+                                                <!--<button type="button" class="btn btn-primary">Gem</button>-->
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        
+
+                                      </div>
+                                  </div>
+                                </div>
+                              </div><!---->
+                            </div>
+                          </div>
+
+                          {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<h1><b><u>Oplevelser i nærheden</u></b><h1>
+    <h3>- max 2 km til byens svømme- og idrætscenter Arena Aabenraa<h3>
+        <h3>- Ikke langt fra arenaen ligger brundlund slot, som i dag er kunstmuseum<h3>
+            <h3>I centrum er de gamle gader og vægterpladsen</h3>
+            
+{% endblock %}

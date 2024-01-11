@@ -28,3 +28,10 @@ class Dinner(models.Model):
     def __str__(self):
         return self.morgen
 
+class Oplev(models.Model):
+    afstand = models.TextField()
+    beskriv = models.TextField()
+    foto = models.ImageField(upload_to='images/', blank=True)
+
+    def __str__(self):
+        return self.afstand
