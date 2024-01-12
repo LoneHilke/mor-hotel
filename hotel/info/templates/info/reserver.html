@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+
+  body{
+    background-color: #e59400;
+  }
+
+  input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: #d3d3d3;
+  }
+
+  .submit{
+    background-color: #6BA3E8;
+  }
+
+  .center-column{
+    width:600px;
+    margin: 20px auto;
+    padding:20px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+  }
+
+  .item-row{
+    background-color: #906abd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+  }
+
+  .btn-danger{
+    background-color: #ffae19;
+    border-color: #e59400;
+  }
+
+</style>
+<body>
+    <div class="container mb-3">
+        <div class="row justify-content-center mt-3">
+          <div class="col-md-8 col-sm-12 offset md-1 p-4 text-center">
+    
+           <!-- <img src = https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH3GH8Y1OuGKl8PJqRepWQpyQbDJ8-5WBbKrAOx6S1RpT2CouTldd_O-M0qbgfnPB4XOk&usqp=CAU>-->
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3">
+          <div class="col-md-8 col-sm-12 offset md-1 p-4 text">
+    
+            </div>
+          </div>
+      </div>
+    
+    
+        <!-- NAV BAR End -->
+    
+        <!-- Footer Start -->
+      <div class="container mb-3">
+        <div class="center-column">
+      <h2><i><b><u>Reserver værelse.</u></b></i></h2>
+    </body>
+    
+    
+    
+      <form method="post" action="{% url 'reserver' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <input class="btn btn-info" type="submit" name="Create Reserver">
+      </form>
+    
+      <div class="todo-list">
+    
+      {% for reser in reservation %}
+        <div class="item-row">
+          <!--<a class="btn btn-sm btn-info" href="{% url 'update_skole' skole.id %}">Update</a>
+           <a class="btn btn-sm btn-danger" href="{% url 'delete_skole' skole.id %}">Delete</a>-->
+    
+          {% if reservation.complete == True %}
+          <strike>{{reservation}}</strike>
+          {% else %}
+          <span>{{reservation}}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
