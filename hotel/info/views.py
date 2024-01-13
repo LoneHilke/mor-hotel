@@ -48,3 +48,7 @@ def Reserver(request):
       
     context = {'reservation': reservation, 'form': form}
     return render(request, 'info/reserver.html', context)
+
+class Kontakt(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'info/kontakt.html')
