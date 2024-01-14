@@ -21,12 +21,12 @@ class ReservationForm(forms.ModelForm):
       model = Reservation
       fields = '__all__'
 
-class DinnerForm(forms.ModelForm):
+class DinnersForm(forms.ModelForm):
   name = forms.CharField(
     widget = forms.TextInput(
       attrs={'placeholder)': 'Dinner'}
     ))
 
   class Meta:
-      model = Reservation
+      model = Dinner
       fields = '__all__'

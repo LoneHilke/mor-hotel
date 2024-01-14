@@ -86,8 +86,8 @@
     
       {% for reser in reservation %}
         <div class="item-row">
-          <!--<a class="btn btn-sm btn-info" href="{% url 'update_reservation' reservation.id %}">Update</a>
-           <a class="btn btn-sm btn-danger" href="{% url 'delete_skole' skole.id %}">Delete</a>-->
+          <a class="btn btn-sm btn-info" href="{% url 'update_reserver' reservation.id %}">Update</a>
+           <!--<a class="btn btn-sm btn-danger" href="{% url 'delete_skole' skole.id %}">Delete</a>-->
     
           {% if reservation.complete == True %}
           <strike>{{reser}}</strike>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from info.models import Reservation
 
@@ -10,10 +10,10 @@ class Index(View):
 class Reservation(View):
     def get(self, request, *args, **kwargs):
          
-          reservation = Reservation.objects.all()
-          context = {
+      reservation = Reservation.objects.all()
+      context = {
 
-            'reservation':reservation,
-          }
+        'reservation':reservation,
+      }
      
-          return render(request, 'personale/reservation.html', context)
+      return render(request, 'personale/reservation.html', context)

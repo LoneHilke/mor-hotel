@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import Beskrivelse, Oplev, Reservation, Dinner
-from .forms import ReservationForm, DinnerForm
+from .forms import ReservationForm, DinnersForm
 
 
 # Create your views here.
@@ -49,7 +49,7 @@ def Reserver(request):
     context = {'reservation': reservation, 'form': form}
     return render(request, 'info/reserver.html', context)
 
-def update_reservation(request, pk):
+def update_reserver(request, pk):
     reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation) 
     context = {'form': form}
@@ -58,7 +58,7 @@ def update_reservation(request, pk):
       if form.is_valid():
           form.save()
           return redirect('/')
-    return render(request, 'info/update-reservation.html', context)
+    return render(request, 'info/update-reserver.html', context)
 
 class Kontakt(View):
     def get(self, request, *args, **kwargs):
@@ -78,12 +78,12 @@ class Kontakt(View):
       context = {'dinner': dinner, 'form': form}
       return render(request, 'info/menu.html', context)"""
 
-def Dinner(request):
+def dinner(request):
     dinner = Dinner.objects.all()
-    form = DinnerForm()
+    form = DinnersForm()
   
     if request.method == 'POST':
-      form = DinnerForm(request.POST)
+      form = DinnersForm(request.POST)
       if form.is_valid():
         form.save()
       return redirect('/')
