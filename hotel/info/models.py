@@ -6,6 +6,7 @@ class Beskrivelse(models.Model):
     belig = models.TextField()
     antal = models.IntegerField()
     beskriv = models.TextField()
+    pris = models.FloatField()
     opred = models.BooleanField(default=True)
 
     def __str__(self):

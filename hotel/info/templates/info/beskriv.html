@@ -1,7 +1,12 @@
 {% extends 'info/base.html' %}
 {% block content %}
+
+
+
+
+
 <h1><b><u>Beskrivelse af værelser</u></b><h1>
-    <h3>- Alle værelser er i stueplan<h3>
+    <h3>- Alle værelser er i stueplan med udsigt over en lukket have<h3>
         <h3>- Der er fælles bad på gangen<h3>
             <h3>- Vasketøj bliver kun vasket, hvis det bliver sorteret</h3>
             <div class="container mb-5">
@@ -47,7 +52,7 @@
                                               </div>
                                               <div class="modal-body">
                                                 <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
-                                                
+                                                <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
                                                 <p><b>Antal personer: </b>{{beskri.antal}}</p>
                                                 <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
                                               </div>
@@ -74,4 +79,14 @@
                   </div>
                 </div>
               </div>
+<!--<script modal.forEach((modal) = {
+  if (modal.classList[0].split("-")[1] * 1 === current) {
+    modal.style.cssText = "visibility: visible; opacity: 1";
+  } else {
+    modal.style.cssText = "visibility: hidden; opacity: 0";
+  }
+});></script>-->
+   
+              
+<script src="script.js"></script>
 {% endblock %}

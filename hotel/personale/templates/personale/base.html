@@ -23,7 +23,7 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Reservationer</a>
+          <a class="nav-link" href="{% url 'reservation' %}">Reservationer</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">bestilling af varer</a>
@@ -34,6 +34,8 @@
       </ul>
     </div>
   </nav>
-<h1>Du kom ind</h1>
+  {% block content %}
+  {% endblock content %}
+<h1>Dette er kun for personale</h1>
 </body>
 </html>

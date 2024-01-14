@@ -1,0 +1,31 @@
+{% extends 'info/base.html' %}
+{% block content %}
+<h1><b><u>Menu</u></b><h1><br>
+    <h3><b>Morgen:</b><br>Der kan serveres youghurt, toast, havregryn og rundstykker<h3><br>
+        <h3><b>Middag:</b><br>Den er ikke includeret, men kan bestilles aftenen forinden<h3><br>
+            <h3><b>Aften:</b><br>Er der specielle ønsker, skal de gives aftenen inden, ellers er det dagens middag, der serveres</h3><br>
+            <h3>Hvis I allerede ved, hvad I kunne tænke jer at spise, kan I bestille det på forhånd</h3><br>
+            <form method="post" action="{% url 'reserver' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+            
+                <input class="btn btn-info" type="submit" name="Dinner">
+              </form>
+            
+              <div class="todo-list">
+            
+              {% for din in dinner %}
+                <div class="item-row">
+                  <!--<a class="btn btn-sm btn-info" href="{% url 'update_reservation' reservation.id %}">Update</a>
+                   <a class="btn btn-sm btn-danger" href="{% url 'delete_skole' skole.id %}">Delete</a>-->
+            
+                  {% if reservation.complete == True %}
+                  <strike>{{din}}</strike>
+                  {% else %}
+                  <span>{{din}}</span>
+                  {% endif %}
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+{% endblock %}
