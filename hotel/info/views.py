@@ -49,7 +49,7 @@ def Reserver(request):
     context = {'reservation': reservation, 'form': form}
     return render(request, 'info/reserver.html', context)
 
-def update_reserver(request, pk):
+"""def update_reserver(request, pk):
     reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation) 
     context = {'form': form}
@@ -58,7 +58,7 @@ def update_reserver(request, pk):
       if form.is_valid():
           form.save()
           return redirect('/')
-    return render(request, 'info/update-reserver.html', context)
+    return render(request, 'info/update-reserver.html', context)"""
 
 class Kontakt(View):
     def get(self, request, *args, **kwargs):

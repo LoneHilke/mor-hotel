@@ -23,10 +23,13 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{% url 'personale' %}">Personale</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'reservation' %}">Reservationer</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">bestilling af varer</a>
+          <a class="nav-link" href="{% url 'middag' %}">bestilling af varer</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Fejl og mangler</a>
@@ -34,8 +37,12 @@
       </ul>
     </div>
   </nav>
+  <div class="container mb-3">
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-8 col-sm-12 offset md-1 p-4 text-center">
+        <font color=green><h1><b><u>Hotel Mor -Personale-</u></b></h1></font>
   {% block content %}
   {% endblock content %}
-<h1>Dette er kun for personale</h1>
+
 </body>
 </html>

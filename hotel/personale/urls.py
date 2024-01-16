@@ -1,12 +1,15 @@
 from django.urls import path
 from django.conf import settings
-from .views import Index, Reservation#, Beskriv#, Jul, Andet, Base, Hart, Star, Rund, Firkant, Sekskant
+from .views import Index, Personale#, Beskriv#, Jul, Andet, Base, Hart, Star, Rund, Firkant, Sekskant
 from django.views import View
+from . import views
 #from django.conf.urls.static import static
 
 urlpatterns = [
   path('', Index.as_view(), name='index'),
-  path('reservation/', Reservation.as_view(), name='reservation'),
+  path('personale/', Personale.as_view(), name='personale'),
+  path('reservation/', views.reservation, name='reservation'),
+  path('middag/', views.middag, name='middag'),
  # path('beskriv/', Beskriv.as_view(), name='beskriv'),
   #path('stjerne/', Stjerne.as_view(), name='stjerne'),
   #path('jul/', Jul.as_view(), name='jul'),

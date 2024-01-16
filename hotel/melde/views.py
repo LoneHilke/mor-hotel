@@ -45,7 +45,7 @@ def komind(request):
     if Melde.objects.filter(brugernavn=input_data).exists():
       if Melde.objects.filter(adgangskode=input_data1).exists():
         # Rediriger til en annen side hvis sammenligningen er vellykket
-        return redirect('/personale')  # Erstatt 'annen_side_navn' med faktisk navn på den andre siden
+        return redirect('/personale/personale')  # Erstatt 'annen_side_navn' med faktisk navn på den andre siden
     else:
         # Hvis sammenligningen mislykkes, gjør noe annet (f.eks. vis feilmelding)
         return render(request, 'meld/login.html', {'feilmelding': 'Ugyldig input!'})

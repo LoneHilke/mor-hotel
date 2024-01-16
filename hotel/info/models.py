@@ -22,6 +22,7 @@ class Reservation(models.Model):
         return self.name
 
 class Dinner(models.Model):
+    name = models.CharField(max_length=50, blank=True)
     morgen = models.TextField()
     middag = models.TextField()
     aften = models.TextField()

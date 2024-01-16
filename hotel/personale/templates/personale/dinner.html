@@ -1,0 +1,63 @@
+{% extends 'personale/base.html' %}
+{% block content %}
+<h1><b><u></u></b><h1>
+    <h3><h3>
+        <h3><h3>
+            <h3></h3>
+            <div class="container mb-5">
+                <h2><b><i><u>Gennemse alle bestillinger</u></i></b></h2>
+                <h6></h6>
+                <div class="row justify-content-center mt-2">
+                  <div class="col-md-12 col-sm-12 p-3">
+
+                    <div class="row">
+
+                      <!--<div class="col-sm-3">-->
+                        <div class="row g-0">
+
+                        {% for din in dinner %}
+
+                          <div class="card-header">
+                            <div class='card w-30'>
+                              <div class="row g-3">
+                                <div class="col-md-4">
+                                  <div class="card" style="width: 18rem;">
+                                    <div class="col-md-2 col-sm-12">
+                                      
+                                    </div> 
+                                      <div class="card-body">
+                                        <h5><b><u>Navn: </u></b></h5>
+                                        <h5 class="card-title">{{din.name}}</h5>
+                                        <h5><b><u>Morgen: </u></b></h5>
+                                        <p class="card-text">{{din.morgen}}</p>
+                                        <h5><b><u>Middag: </u></b></h5>
+                                        <p class="card-text">{{din.middag}}</p>
+                                        <h5><b><u>Aften: </u></b></h5>
+                                        <p class="card-text">{{din.aften}}</p>
+                                        
+
+                                        
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                        
+
+                                      </div>
+                                  </div>
+                                
+                        
+                          {% endfor %}
+                          
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<h1><b><u></u></b><h1>
+    <h3><h3>
+        <h3><h3>
+            <h3></h3>
+            
+{% endblock %}

@@ -79,16 +79,14 @@
         {% csrf_token %}
         {{ form.as_p }}
     
-        <input class="btn btn-info" type="submit" name="Create Reserver">
+        <input class="btn btn-info" type="submit" name="Reservation">
       </form>
     
       <div class="todo-list">
     
       {% for reser in reservation %}
         <div class="item-row">
-          <a class="btn btn-sm btn-info" href="{% url 'update_reserver' reservation.id %}">Update</a>
-           <!--<a class="btn btn-sm btn-danger" href="{% url 'delete_skole' skole.id %}">Delete</a>-->
-    
+          
           {% if reservation.complete == True %}
           <strike>{{reser}}</strike>
           {% else %}
@@ -98,4 +96,4 @@
       {% endfor %}
       </div>
     </div>
-    {% endblock %}
+{% endblock %}
