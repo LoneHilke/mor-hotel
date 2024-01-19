@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'info',
     'melde',
     'personale',
+    'beskriv',
 ]
 
 MIDDLEWARE = [

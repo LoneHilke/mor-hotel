@@ -13,7 +13,7 @@ class Info(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'info/info.html')
     
-class Beskriv(View):
+"""class Beskriv(View):
   def get(self, request, *args, **kwargs):
 
     beskrivelse = Beskrivelse.objects.all()
@@ -22,7 +22,7 @@ class Beskriv(View):
         'beskrivelse':beskrivelse,
       } 
 
-    return render(request, 'info/Beskriv.html', context)
+    return render(request, 'info/beskriv.html', context)"""
   
 class Opleve(View):
     def get(self, request, *args, **kwargs):
