@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Beskrivelse(models.Model):
+    nr = models.IntegerField(blank=True)
     str = models.TextField()
     belig = models.TextField()
     antal = models.IntegerField()
@@ -13,6 +14,7 @@ class Beskrivelse(models.Model):
         return self.str
 
 class Reservation(models.Model):
+    nr = models.IntegerField(blank=True)
     name = models.TextField()
     dato = models.DateField(blank=True, null=True)
     person = models.IntegerField()
@@ -23,6 +25,7 @@ class Reservation(models.Model):
 
 class Dinner(models.Model):
     name = models.CharField(max_length=50, blank=True)
+    nr = models.IntegerField(blank=True)
     morgen = models.TextField()
     middag = models.TextField()
     aften = models.TextField()
@@ -37,3 +40,12 @@ class Oplev(models.Model):
 
     def __str__(self):
         return self.afstand
+    
+class Fejl(models.Model):
+    nr = models.IntegerField(blank=True)
+    fejl = models.TextField()
+    mangler = models.TextField()
+    forslag = models.TextField()
+
+    def __str__(self):
+        return self.nr

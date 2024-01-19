@@ -33,19 +33,21 @@
                                       <div class="card-body">
                                         <h5><b><u>Navn: </u></b></h5>
                                         <h5 class="card-title">{{beskri.str}}</h5>
+                                        <h5><b><u>Værelses nr.: </u></b></h5>
+                                        <p class="card-text">{{beskri.nr}}</p>
                                         <h5><b><u>Beskrivelse: </u></b></h5>
                                         <p class="card-text">{{beskri.belig}}</p>
 
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal-info-{{beskriv.pk}}">
                                          Se mere
-                                        </button>
+                                        </button>-->
                                         
                                         <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <!--<div class="modal fade" id="modal-info-{{beskriv.pk}}" tabindex="-1" role="dialog" aria-labelledby="modal-info-{{beskriv.pk}}-label" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">{{beskri.beskrivelse}}</h5>
+                                                <h5 class="modal-title" id="modal-info-{{beskriv.pk}}-label">{{beskri.beskrivelse}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -57,8 +59,33 @@
                                                 <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
                                               </div>
                                               <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>-->
                                                 <!--<button type="button" class="btn btn-primary">Gem</button>-->
+                                                <button type="button" class="btn btn-success card-button" data-toggle="modal"
+                                                          data-target="modal-info-{{beskriv.pk}}" >
+                                                          <!--style="position: absolute; bottom: 10px; right:50px"-->
+                                                          se mere
+                                              </button>
+
+                                                          <!-- Modal -->
+                                      <div class="modal fade" id="modal-info" tabindex="-1"
+                                      aria-labelledby="modal-beskriv-{{beskriv.pk}}-label" aria-hidden="true">
+                                      <div class="modal-dialog">
+                                          <div class="modal-content">
+                                              <div class="modal-header">
+                                                  <h5 class="modal-title" id="modal-info-{{beskriv.pk}}-label">{{beskri.beskrivelse}}</h5>
+                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                      <span aria-hidden="true">&times;</span>
+                                                  </button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                                                <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
+                                                <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                                                <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
+                                              </div>
+                                              <div class="modal-footer">
+                                                  <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                                               </div>
                                             </div>
                                           </div>
@@ -79,6 +106,37 @@
                   </div>
                 </div>
               </div>
+              {% for beskri in beskrivelse %}
+              
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal-beskriv">
+                {{beskriv.nr}}
+                {{beskriv.str}}
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="modal-beskriv" tabindex="-1" role="dialog" aria-labelledby="modal-beskriv" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Lone Martinussen Hilke</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                      <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
+                      <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                      <p><b>ekstra opredning: </b>{{beskri.opred}}</p>...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                      <!--<button type="button" class="btn btn-primary">Gem</button>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+             {% endfor %}
 <!--<script modal.forEach((modal) = {
   if (modal.classList[0].split("-")[1] * 1 === current) {
     modal.style.cssText = "visibility: visible; opacity: 1";
