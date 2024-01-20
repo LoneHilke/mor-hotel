@@ -14,8 +14,8 @@
 
                       <!--<div class="col-sm-3">-->
                         <div class="row g-0">
-fej
-                        {% for fej in fejl %}
+
+                        <!--{% for fej in fejl %}
 
                           <div class="card-header">
                             <div class='card w-30'>
@@ -50,8 +50,29 @@ fej
                                   </div>
                                 
                         
-                          {% endfor %}
+                          {% endfor %}-->
+                          <table border="2" style="green">
+                          {% for fej in fejl %}
                           
+                          <tr>
+                            <td><h5><b><u>Navn: </u></b>{{fej.name}}</h5></td>
+                            
+                          
+                          
+                            <td><h5><b><u>Værelses nr: </u></b>{{fej.nr}}</h5></td>
+                            
+                          
+                              <td><h5><b><u>Fejl: </u></b>{{fej.fejl}}</h5></td>
+                            
+                                <td><h5><b><u>Mangler: </u></b>{{fej.mangler}}</h5></td>
+                            
+                                  <td><h5><b><u>Forslag: </u></b>{{fej.forslag}}</h5></td>
+                            <hr>
+                          </tr>
+                        
+                        
+                          {% endfor %}
+                          </table>
                         </div>
                     </div>
                   </div>
