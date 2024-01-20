@@ -5,7 +5,7 @@ from info.models import Beskrivelse
 
 class Index(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'info/base.html')
+        return render(request, 'beskriv/base.html')
 
 class Beskriv(View):
   def get(self, request, *args, **kwargs):

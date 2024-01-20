@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Reservation, Dinner
+from .models import Reservation, Dinner, Fejl
 
 """class TaskForm(forms.ModelForm):
   name = forms.CharField(
@@ -29,4 +29,14 @@ class DinnersForm(forms.ModelForm):
 
   class Meta:
       model = Dinner
+      fields = '__all__'
+
+class FejlForm(forms.ModelForm):
+  name = forms.CharField(
+    widget = forms.TextInput(
+      attrs={'placeholder)': 'Fejl'}
+    ))
+
+  class Meta:
+      model = Fejl
       fields = '__all__'

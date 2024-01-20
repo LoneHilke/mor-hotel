@@ -1,0 +1,55 @@
+{% extends 'info/base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<body>
+    <div class="container mb-3">
+        <div class="row justify-content-center mt-3">
+          <div class="col-md-8 col-sm-12 offset md-1 p-4 text-center">
+    
+           <!-- <img src = https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH3GH8Y1OuGKl8PJqRepWQpyQbDJ8-5WBbKrAOx6S1RpT2CouTldd_O-M0qbgfnPB4XOk&usqp=CAU>-->
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3">
+          <div class="col-md-8 col-sm-12 offset md-1 p-4 text">
+    
+            </div>
+          </div>
+      </div>
+    
+    
+        <!-- NAV BAR End -->
+    
+        <!-- Footer Start -->
+      <div class="container mb-3">
+        <div class="center-column">
+      <h2><i><b><u>Fejl/mangler m.m..</u></b></i></h2>
+      <h5>Inden afrejse er I velkommen til at udfylde nedenstående, hvis der har været fejl og mangler.<br> I kan også komme med forslag til noget nyt, eller ris og ros.<br>Sidstnævnte kan også skrives i forslag</h5>
+    </body>
+    
+    
+    
+      <form method="post" action="{% url 'fejl' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <input class="btn btn-info" type="submit" name="Fejl">
+      </form>
+    
+      <div class="todo-list">
+    
+      {% for reser in reservation %}
+        <div class="item-row">
+          
+          {% if reservation.complete == True %}
+          <strike>{{reser}}</strike>
+          {% else %}
+          <span>{{reser}}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+{% endblock %}

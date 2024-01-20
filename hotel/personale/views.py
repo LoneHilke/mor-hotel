@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from info.models import Reservation, Dinner
+from info.models import Reservation, Dinner, Fejl
 
 # Create your views here.
 class Index(View):
@@ -32,3 +32,14 @@ def reservation(request):
       }
      
       return render(request, 'personale/reservation.html', context)
+
+def mangler(request):
+    #def get(self, request, *args, **kwargs):
+         
+      fejl = Fejl.objects.all()
+      context = {
+
+        'fejl':fejl,
+      }
+     
+      return render(request, 'personale/fejl.html', context)

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Beskrivelse, Oplev, Reservation, Dinner
-from .forms import ReservationForm, DinnersForm
+from .models import Beskrivelse, Oplev, Reservation, Dinner, Fejl
+from .forms import ReservationForm, DinnersForm, FejlForm
 
 
 # Create your views here.
@@ -13,7 +13,7 @@ class Info(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'info/info.html')
     
-"""class Beskriv(View):
+class Beskriv(View):
   def get(self, request, *args, **kwargs):
 
     beskrivelse = Beskrivelse.objects.all()
@@ -22,7 +22,7 @@ class Info(View):
         'beskrivelse':beskrivelse,
       } 
 
-    return render(request, 'info/beskriv.html', context)"""
+    return render(request, 'info/beskriv.html', context)
   
 class Opleve(View):
     def get(self, request, *args, **kwargs):
@@ -90,3 +90,16 @@ def dinner(request):
       
     context = {'dinner': dinner, 'form': form}
     return render(request, 'info/menu.html', context)
+
+def fejl(request):
+    fejl = Fejl.objects.all()
+    form = FejlForm()
+  
+    if request.method == 'POST':
+      form = FejlForm(request.POST)
+      if form.is_valid():
+        form.save()
+      return redirect('/')
+      
+    context = {'fejl': fejl, 'form': form}
+    return render(request, 'info/fejl.html', context)

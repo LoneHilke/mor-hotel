@@ -37,6 +37,11 @@
                                         <p class="card-text">{{beskri.nr}}</p>
                                         <h5><b><u>Beskrivelse: </u></b></h5>
                                         <p class="card-text">{{beskri.belig}}</p>
+                                        <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                      <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
+                      <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                      <p><b>ekstra opredning: </b>{{beskri.opred}}
+                        <button type="button" class="btn btn-primary rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'reserver' %}">Gå til reservation</a></button>
 
                                         <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal-info-{{beskriv.pk}}">
                                          Se mere
@@ -106,15 +111,15 @@
                   </div>
                 </div>
               </div>
-              {% for beskri in beskrivelse %}
+              <!--{% for beskri in beskrivelse %}
               
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal-beskriv">
-                {{beskriv.nr}}
+                Beskrivelse af værelse: {{beskriv.nr}}
                 {{beskriv.str}}
-              </button>
+              </button>-->
               
               <!-- Modal -->
-              <div class="modal fade" id="modal-beskriv" tabindex="-1" role="dialog" aria-labelledby="modal-beskriv" aria-hidden="true">
+              <!--<div class="modal fade" id="modal-beskriv" tabindex="-1" role="dialog" aria-labelledby="modal-beskriv" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -131,12 +136,12 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
-                      <!--<button type="button" class="btn btn-primary">Gem</button>-->
+                      <button type="button" class="btn btn-primary">Gem</button>
                     </div>
                   </div>
                 </div>
               </div>
-             {% endfor %}
+             {% endfor %}--><!-- -->
 <!--<script modal.forEach((modal) = {
   if (modal.classList[0].split("-")[1] * 1 === current) {
     modal.style.cssText = "visibility: visible; opacity: 1";

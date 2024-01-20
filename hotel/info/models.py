@@ -46,6 +46,7 @@ class Fejl(models.Model):
     fejl = models.TextField()
     mangler = models.TextField()
     forslag = models.TextField()
+    name = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return self.nr
