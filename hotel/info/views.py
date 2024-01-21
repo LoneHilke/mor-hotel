@@ -44,7 +44,7 @@ def Reserver(request):
       form = ReservationForm(request.POST)
       if form.is_valid():
         form.save()
-      return redirect('/')
+      return redirect('/afregn')
       
     context = {'reservation': reservation, 'form': form}
     return render(request, 'info/reserver.html', context)
@@ -103,3 +103,14 @@ def fejl(request):
       
     context = {'fejl': fejl, 'form': form}
     return render(request, 'info/fejl.html', context)
+
+class Afregn(View):
+    def get(self, request, *args, **kwargs):
+         
+          reservation = Reservation.objects.all()
+          context = {
+
+            'reservation':reservation,
+          }
+     
+          return render(request, 'info/afregn.html', context)

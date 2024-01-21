@@ -17,8 +17,11 @@ class Reservation(models.Model):
     nr = models.IntegerField(blank=True)
     name = models.TextField()
     dato = models.DateField(blank=True, null=True)
+    rejse = models.DateField(blank=True, null=True)
+    
     person = models.IntegerField()
-    pris = models.CharField(max_length = 250)
+    pris = models.IntegerField()
+    kontakt = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

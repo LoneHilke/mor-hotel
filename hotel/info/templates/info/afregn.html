@@ -1,0 +1,40 @@
+{% extends 'info/base.html' %}
+{% block content %}
+<h2>Tjek bestilling og afregning</h2>
+
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-12 col-sm-12 p-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="pt-5">
+                    {% for reser in reservation %}
+                    <div class="row">
+                        <!--<div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ app.image.url }}" width="150" height="100"/>
+                        </div>-->
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <label class="form-check-label">{{ reser.name }}</label>
+                                    <p class="font-weight-bold pl-5">Værelses nr: {{ reser.nr }}</p>
+                                    <input type="checkbox" name="items[]" class="form-check-input" >
+                                    <label class="form-check-label"> + morgenmad</label>
+                                    {% if checkbox == True %}
+                                    + 75 kr.
+                                    {% endif %}
+                                </div>
+                                <p class="font-weight-bold pl-5">Antal personer {{ reser.person }}</p>
+                                <p class="font-weight-bold pl-5">Pris for værelse {{ reser.pris }}</p>
+                                <p class="font-weight-bold pl-5">Ankomst dato {{ reser.dato }}</p>
+                                <p class="font-weight-bold pl-5">Afrejse dato {{ reser.rejse }}</p>
+                            </div>
+                            <p>Kontakt (mail/tlf): {{ reser.kontakt }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                {% endfor %}
+                </div>
+
+
+{% endblock %}

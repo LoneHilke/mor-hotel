@@ -1,6 +1,6 @@
 from django.urls import path
 from django.conf import settings
-from .views import Index, Info, Beskriv, Opleve, Kontakt#, Menu
+from .views import Index, Info, Beskriv, Opleve, Kontakt, Afregn#, Menu
 from django.views import View
 from django.conf.urls.static import static
 from . import views
@@ -15,7 +15,7 @@ urlpatterns = [
   path('kontakt/', Kontakt.as_view(), name='kontakt'),
   path('fejl/', views.fejl, name='fejl'),
   path('dinner/', views.dinner, name='dinner'),
-  #path('star/', Star.as_view(), name='star'),
+  path('afregn/', Afregn.as_view(), name='afregn'),
   #path('rund/', Rund.as_view(), name='rund'),
   #path('firkant/', Firkant.as_view(), name='firkant'),
   #path('sekskant/', Sekskant.as_view(), name='sekskant'),
