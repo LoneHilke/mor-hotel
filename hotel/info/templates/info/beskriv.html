@@ -1,8 +1,10 @@
 {% extends 'info/base.html' %}
 {% block content %}
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
-
+    
 
 
 <h1><b><u>Beskrivelse af værelser</u></b><h1>
@@ -11,6 +13,44 @@
             <h3>- Vasketøj bliver kun vasket, hvis det bliver sorteret</h3>
             <div class="container mb-5">
                 <h2><b><i><u>Beskrivelse af værelser</u></i></b></h2>
+                <img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWb9mbdkoF8GamTirrmRBeI94SjNOOOpxwA&usqp=CAU width="250" height="300" >
+                <br>
+                {% for beskri in beskrivelse %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Beskrivelse af rum 1
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ beskri.nr}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1sgwhsksPDHk6TGagtaD5XtVteGRa0dy8Xg&usqp=CAU width="250" height="300" >
+            <h5><b><u>Navn: </u></b></h5>
+                                        <h5 class="card-title">{{beskri.str}}</h5>
+                                        <h5><b><u>Værelses nr.: </u></b></h5>
+                                        <p class="card-text">{{beskri.nr}}</p>
+                                        <h5><b><u>Beskrivelse: </u></b></h5>
+                                        <p class="card-text">{{beskri.belig}}</p>
+                                        <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                      <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
+                      <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                      <p><b>ekstra opredning: </b>{{beskri.opred}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'reserver' %}">Gå til reservation</a></button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-primary">Understood</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+
                 <h6></h6>
                 <div class="row justify-content-center mt-1">
                   <div class="col-md-12 col-sm-12 p-4">
@@ -150,6 +190,65 @@
   }
 });></script>-->
    
+<!--
+<div class="card-header">
+  <div class='card w-30'>
+    <div class="row g-0">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="col-md-2 col-sm-12">
+            
+          </div> 
+            <div class="card-body">
+              <h5><b><u>Navn: </u></b></h5>
+              <h5 class="card-title">Værelse 1</h5>
+              <h5><b><u>Værelses nr.: </u></b></h5>
+              <p class="card-text">1</p>
+              <h5><b><u>Beskrivelse: </u></b></h5>
+              <p class="card-text">udsigt til haven</p>
+              <p><b>Beskrivelse: </b>ca.14 km2</p>
+<p><b>Pris pr. person: </b>450</p>
+<p><b>Antal personer: </b>2</p>
+<p><b>ekstra opredning: </b>ja
+<button type="button" class="btn btn-primary rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'reserver' %}">Gå til reservation</a></button>
+
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="modal-info-{{beskriv.pk}}">
+               Se mere
+              </button>-->
               
+              <!-- Modal -->
+              <div class="modal fade" id="modal-info-" tabindex="-1" role="dialog" aria-labelledby="modal-info-{{beskriv.pk}}-label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modal-info--label">lille hotel</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p><b>Beskrivelse: </b></p>
+                      <p><b>Pris pr. person: </b></p>
+                      <p><b>Antal personer: </b></p>
+                      <p><b>ekstra opredning: </b></p>...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                      <button type="button" class="btn btn-primary">Gem</button>
+                      <button type="button" class="btn btn-success card-button" data-toggle="modal"
+                                data-target="modal-info" >
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
 <script src="script.js"></script>
 {% endblock %}
