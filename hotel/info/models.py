@@ -9,12 +9,14 @@ class Beskrivelse(models.Model):
     beskriv = models.TextField()
     pris = models.FloatField()
     opred = models.BooleanField(default=True)
+    telt = models.TextField(blank=True)
 
     def __str__(self):
         return self.str
 
 class Reservation(models.Model):
     nr = models.IntegerField(blank=True)
+    telt = models.TextField(blank=True)
     name = models.TextField()
     dato = models.DateField(blank=True, null=True)
     rejse = models.DateField(blank=True, null=True)

@@ -18,10 +18,13 @@
                                 <div class="form-group form-check">
                                     <label class="form-check-label">{{ reser.name }}</label>
                                     <p class="font-weight-bold pl-5">Værelses nr: {{ reser.nr }}</p>
+                                    <p class="font-weight-bold pl-5">Telt nr: {{ reser.telt }}</p>
                                     <input type="checkbox" name="items[]" class="form-check-input" >
                                     <label class="form-check-label"> + morgenmad</label>
                                     {% if checkbox == True %}
                                     + 75 kr.
+                                    {% else %}
+                                    0 kr
                                     {% endif %}
                                 </div>
                                 <p class="font-weight-bold pl-5">Antal personer {{ reser.person }}</p>

@@ -17,7 +17,7 @@
                 <br>
                 {% for beskri in beskrivelse %}
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-      Beskrivelse af rum 1
+      Beskrivelse af rum {{ beskri.nr}}
     </button>
 
     <!-- Modal -->
@@ -30,6 +30,46 @@
           </div>
           <div class="modal-body">
             <img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1sgwhsksPDHk6TGagtaD5XtVteGRa0dy8Xg&usqp=CAU width="250" height="300" >
+            <h5><b><u>Navn: </u></b></h5>
+                                        <h5 class="card-title">{{beskri.str}}</h5>
+                                        <h5><b><u>Værelses nr.: </u></b></h5>
+                                        <p class="card-text">{{beskri.nr}}</p>
+                                        <h5><b><u>Beskrivelse: </u></b></h5>
+                                        <p class="card-text">{{beskri.belig}}</p>
+                                        <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
+                      <p><b>Pris pr. person: </b>{{beskri.pris}}</p>
+                      <p><b>Antal personer: </b>{{beskri.antal}}</p>
+                      <p><b>ekstra opredning: </b>{{beskri.opred}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'reserver' %}">Gå til reservation</a></button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!--<button type="button" class="btn btn-primary">Understood</button>-->
+          </div>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+
+<h3>En mulig hed om sommeren er at sove i telt i haven</h3>
+
+{% for beskri in beskrivelse %}
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Beskrivelse af telt {{ beskri.telt}}
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ beskri.telt}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src= https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzOK_3ZIVpWZOEy_JqySvWwnntRM-XuMgW0A&usqp=CAU >
+            <h5><b><u>Telt nr.: </u></b></h5>
+                                        <p class="card-text">{{beskri.telt}}</p>
             <h5><b><u>Navn: </u></b></h5>
                                         <h5 class="card-title">{{beskri.str}}</h5>
                                         <h5><b><u>Værelses nr.: </u></b></h5>
@@ -74,7 +114,7 @@
                                         <h5><b><u>Navn: </u></b></h5>
                                         <h5 class="card-title">{{beskri.str}}</h5>
                                         <h5><b><u>Værelses nr.: </u></b></h5>
-                                        <p class="card-text">{{beskri.nr}}</p>
+                                        <p class="card-text">{{beskri.telt}}</p>
                                         <h5><b><u>Beskrivelse: </u></b></h5>
                                         <p class="card-text">{{beskri.belig}}</p>
                                         <p><b>Beskrivelse: </b>{{beskri.beskrivelse}}</p>
