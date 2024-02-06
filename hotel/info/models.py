@@ -15,6 +15,7 @@ class Beskrivelse(models.Model):
         return self.str
 
 class Reservation(models.Model):
+    created_on = models.DateTimeField(auto_now_add=True)
     nr = models.IntegerField(blank=True)
     telt = models.TextField(blank=True)
     name = models.TextField()

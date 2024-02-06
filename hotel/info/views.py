@@ -114,3 +114,33 @@ class Afregn(View):
           }
      
           return render(request, 'info/afregn.html', context)
+    
+    def post(self, request, *args, **kwargs):
+       kontakt = request.POST.get('kontakt')
+       order_afregn = {
+          'reservation' : []
+       }
+
+       reservation = request.POST.getlist('reservation[]')
+
+       for reserv in reservation:
+          reservation = Reservation.objects.get(pk__contains=reserv(reservation))
+          reserv_data={
+             'id': reservation.pk,
+             'kontakt': reservation.kontakt,
+             'pris': reservation.pris
+          }
+
+          order_afregn['reservation'].append(reserv_data)
+
+          pris = 0
+          reserv_ids = []
+
+       for afregn in order_afregn['reservation']:
+          pris += reserv['pris']
+          reserv_ids.append(reserv['id'])
+
+          return redirect('reserv-confirmations', pk=reserv.pk)
+
+
+
