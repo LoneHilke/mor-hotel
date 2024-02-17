@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 class Beskrivelse(models.Model):
@@ -26,8 +27,17 @@ class Reservation(models.Model):
     pris = models.IntegerField()
     kontakt = models.TextField(blank=True)
 
-    def __str__(self):
-        return self.name
+    def beregn_pris(self):
+        # Beregn antal dage mellem startdato og slutdato
+        antal_dage = (self.rejse - self.dato).days
+
+        # Beregn den endelige pris ved at multiplicere antal dage med pris
+        endelig_pris = antal_dage * self.pris
+
+        return endelig_pris
+
+    """def __str__(self):
+        return self.name"""
 
 class Dinner(models.Model):
     name = models.CharField(max_length=50, blank=True)

@@ -9,6 +9,33 @@
                 {% csrf_token %}
                 <div class="pt-5">
                     {% for reser in reservation %}
+                    <input class="{{ model }}" type="date" id="startDate" placeholder="{{ reser.dato }}" aria-label="Starttid">
+      <input class="{{ model }}" type="date" id="endDate" placeholder="reser.rejse" aria-label="Sluttid">
+      <button onclick="beregnTidsforskel()">Beregn forskel</button>
+
+      <p id="result"></p>
+
+      <script>
+        function beregnTidsforskel() {
+          // Hent start- og sluttid fra inputfelterne
+          var startTimeInput = document.getElementById('startDate').value;
+          var endTimeInput = document.getElementById('endDate').value;
+
+          // Opret nye Date-objekter baseret på indtastede tider
+          var startDate = new Date('2000-01-01T' + startDateInput);
+          var endDate = new Date('2000-01-01T' + endDateInput);
+
+          // Beregn tidsforskellen i millisekunder
+          var dateDifference = endDate - startDate;
+
+          // Konverter tidsforskellen til timer og minutter
+          //var date = Math.floor(dateDifference / 365);
+          //var minutes = Math.round((dateDifference % 3600000) / 60000);
+
+          // Vis resultatet
+          document.getElementById('result').innerHTML = 'Forskel: ' + dateDifference;
+        }
+      </script>
                     <div class="row">
                         <!--<div class="col-md-2 col-sm-12">
                             <img class="rounded" src="{{ app.image.url }}" width="150" height="100"/>
@@ -16,7 +43,7 @@
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <label class="form-check-label">{{ reser.name }}</label>
+                                    <label class="form-check-label"><b>Navn: </b>{{ reser.name }}</label>
                                     <p class="font-weight-bold pl-5">Værelses nr: {{ reser.nr }}</p>
                                     <p class="font-weight-bold pl-5">Telt nr: {{ reser.telt }}</p>
                                     <input type="checkbox" name="items[]" class="form-check-input" >
@@ -27,17 +54,77 @@
                                     0 kr
                                     {% endif %}
                                 </div>
-                                <p class="font-weight-bold pl-5">Antal personer {{ reser.person }}</p>
+                                <p class="font-weight-bold pl-5">Antal personer: <p><p> {{ reser.person }}</p>
                                 <p class="font-weight-bold pl-5">Pris for værelse {{ reser.pris }}</p>
                                 <p class="font-weight-bold pl-5">Ankomst dato {{ reser.dato }}</p>
                                 <p class="font-weight-bold pl-5">Afrejse dato {{ reser.rejse }}</p>
+                                <p class="font-weight-bold pl-5">Antal overnatninger: {{ reser.antal_dage }}</p>
                             </div>
                             <p>Kontakt (mail/tlf): {{ reser.kontakt }}</p>
                         </div>
                     </div>
                     <hr />
+                    <!--<input class="{{ reser.dato }}" type="date" id="startDate" placeholder="{{ reser.dato }}" aria-label="Starttid">
+      <input class="{{ reser.rejse }}" type="date" id="endDate" placeholder="reser.rejse" aria-label="Sluttid">
+      <button onclick="beregnTidsforskel()">Beregn forskel</button>
+
+      <p id="result"></p>-->
+
+      <script>
+        function beregnTidsforskel() {
+          // Hent start- og sluttid fra inputfelterne
+          var startTimeInput = document.getElementById('startDate').value;
+          var endTimeInput = document.getElementById('endDate').value;
+
+          // Opret nye Date-objekter baseret på indtastede tider
+          var startDate = new Date('2000-01-01T' + startDateInput);
+          var endDate = new Date('2000-01-01T' + endDateInput);
+
+          // Beregn tidsforskellen i millisekunder
+          var dateDifference = endDate - startDate;
+
+          // Konverter tidsforskellen til timer og minutter
+          var date = Math.floor(dateDifference / 365);
+          //var minutes = Math.round((dateDifference % 3600000) / 60000);
+
+          // Vis resultatet
+          document.getElementById('result').innerHTML = 'Forskel: ' + dateDifference;
+        }
+      </script>
                 {% endfor %}
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <input class="form-control1" type="date" id="startDate" placeholder="00:00" aria-label="Starttid">
+    <input class="form-control2" type="date" id="endDate" placeholder="00:00" aria-label="Sluttid">
+    <button onclick="beregnTidsforskel()">Beregn forskel</button>
+
+    <p id="result"></p>
+
+    <script>
+      function beregnTidsforskel() {
+        // Hent start- og sluttid fra inputfelterne
+        var startTimeInput = document.getElementById('startDate').value;
+        var endTimeInput = document.getElementById('endDate').value;
+
+        // Opret nye Date-objekter baseret på indtastede tider
+        var startDate = new Date('2000-01-01T' + startDateInput + ':00');
+        var endDate = new Date('2000-01-01T' + endDateInput + ':00');
+
+        // Beregn tidsforskellen i millisekunder
+        var DateDifference = endDate - startDate;
+
+        // Konverter tidsforskellen til timer og minutter
+        var date = Math.floor(dateDifference / 365)
+       // var hours = Math.floor(timeDifference / 3600000);
+       // var minutes = Math.round((timeDifference % 3600000) / 60000);
+
+        // Vis resultatet
+        document.getElementById('result').innerHTML = 'Forskel: ' + date;
+      }
+    </script>
 
 
 {% endblock %}

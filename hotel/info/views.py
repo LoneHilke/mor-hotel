@@ -104,7 +104,7 @@ def fejl(request):
     context = {'fejl': fejl, 'form': form}
     return render(request, 'info/fejl.html', context)
 
-class Afregn(View):
+"""class Afregn(View):
     def get(self, request, *args, **kwargs):
          
           reservation = Reservation.objects.all()
@@ -140,7 +140,15 @@ class Afregn(View):
           pris += reserv['pris']
           reserv_ids.append(reserv['id'])
 
-          return redirect('reserv-confirmations', pk=reserv.pk)
+          return redirect('reserv-confirmations', pk=reserv.pk)"""
 
+class Afregn(View):
+   def get(self, request):
+      
+      reservation = Reservation.objects.all()
+      context = {
 
+            'reservation':reservation,
+      }
+      return render(request, 'info/afregn.html', context)
 
