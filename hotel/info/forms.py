@@ -14,7 +14,7 @@ from .models import Reservation, Dinner, Fejl
 class ReservationForm(forms.ModelForm):
   name = forms.CharField(
     widget = forms.TextInput(
-      attrs={'placeholder)': 'Ny reservation...'}
+      attrs={'placeholder': 'Ny reservation...'}
     ))
 
   class Meta:
@@ -24,7 +24,7 @@ class ReservationForm(forms.ModelForm):
 class DinnersForm(forms.ModelForm):
   name = forms.CharField(
     widget = forms.TextInput(
-      attrs={'placeholder)': 'Dinner'}
+      attrs={'placeholder': 'Dinner'}
     ))
 
   class Meta:
@@ -34,7 +34,7 @@ class DinnersForm(forms.ModelForm):
 class FejlForm(forms.ModelForm):
   name = forms.CharField(
     widget = forms.TextInput(
-      attrs={'placeholder)': 'Fejl'}
+      attrs={'placeholder': 'Fejl'}
     ))
 
   class Meta:
