@@ -25,14 +25,14 @@
                                   
                                 <p class="font-weight pl-5"><b>Antal personer: </b> {{ reser.person }}</p>
                                 <p class="font-weight pl-5"><b>Pris for værelse: </b>{{ reser.pris }}</p>
-                                <p class="font-weight pl-5"><b>Ankomst dato:</b>{{ reser.dato }}</p>
-                                <p class="font-weight pl-5"><b>Afrejse dato: </b>{{ reser.rejse }}</p>
-                                <p class="font-weight pl-5"><b>Antal overnatninger: </b>{{ reser.antal_dage }}</p>
+                                <!--<p class="font-weight pl-5"><b>Ankomst dato:</b>{{ reser.dato }}</p>
+                                <p class="font-weight pl-5"><b>Afrejse dato: </b>{{ reser.rejse }}</p>-->
+                                <p class="font-weight pl-5"><b>Antal overnatninger: </b>{{ result }}</p>
                                 <label for="reser.dato"><b>ankomst: </b></label>
                                 {{reser.dato}}
   <!--<input type="date" id="dato">-->
 
-  <label for="reser.rejse">afrejse:</label>
+  <label for="reser.rejse"><b>afrejse:</b></label>{{reser.rejse}}
   <!--<input type="date" id="rejse">-->
 
   <button onclick="calculateDateDifference()">Calculate Difference</button>
@@ -157,10 +157,10 @@
         }
       </script>-->
 
-      <label for="rever.dato">Date 1:</label>
+      <label for="reser.dato">Date 1:</label>
   <!--<input type="date" id="dato">-->
 
-  <label for="rever.rejse">Date 2:</label>
+  <label for="reser.rejse">Date 2:</label>
   <!--<input type="date" id="rejse">-->
 
   <button onclick="calculateDateDifference()">Calculate Difference</button>
@@ -169,13 +169,21 @@
 
   <script>
     function calculateDateDifference() {
-      var date1 = new Date(document.getElementById('dato').value);
-      var date2 = new Date(document.getElementById('rejse').value);
+      var {{reser.dato}} = new Date(document.getElementById('dato').value);
+      var {{reser.rejse}} = new Date(document.getElementById('rejse').value);
 
-      var timeDifference = Math.abs(date2.getTime() - date1.getTime());
+      var timeDifference = Math.abs({{reser.rejse}}.getTime() - {{reser.dato}}.getTime());
       var daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
 
       document.getElementById('result').innerHTML = 'Difference in days: ' + daysDifference;
     }
+    //function calculateDateDifference() {
+     // var date1 = new Date(document.getElementById('dato').value);
+     // var date2 = new Date(document.getElementById('rejse').value);
+
+    // var timeDifference = Math.abs(date2.getTime() - date1.getTime());
+     // var daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
+// document.getElementById('result').innerHTML = 'Difference in days: ' + daysDifference;
+    //}
   </script>
 {% endblock %}
