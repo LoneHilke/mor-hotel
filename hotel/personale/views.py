@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from info.models import Reservation, Dinner, Fejl
+from datetime import datetime
 
 # Create your views here.
 class Index(View):
@@ -26,6 +27,18 @@ def reservation(request):
     #def get(self, request, *args, **kwargs):
          
       reservation = Reservation.objects.all()
+      date_format = "%d/%m/%Y"
+      dato = datetime.strptime('10/04/2024', date_format)
+      rejse = datetime.strptime('12/04/2024', date_format)
+
+      delta = rejse - dato
+      date_diff = delta.days
+      context = {
+
+            'reservation':reservation,
+            
+            'date_diff': date_diff,
+      }
       context = {
 
         'reservation':reservation,

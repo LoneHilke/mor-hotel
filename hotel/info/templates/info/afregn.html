@@ -23,21 +23,21 @@
                                     <p class="font-weight pl-5"><b>Telt nr: </b>{{ reser.telt }}</p>
                                     
                                   
-                                <p class="font-weight pl-5"><b>Antal personer: </b> {{ reser.person }}</p>
-                                <p class="font-weight pl-5"><b>Pris for værelse: </b>{{ reser.pris }}</p>
-                                <!--<p class="font-weight pl-5"><b>Ankomst dato:</b>{{ reser.dato }}</p>
-                                <p class="font-weight pl-5"><b>Afrejse dato: </b>{{ reser.rejse }}</p>-->
-                                <p class="font-weight pl-5"><b>Antal overnatninger: </b>{{ result }}</p>
-                                <label for="reser.dato"><b>ankomst: </b></label>
-                                {{reser.dato}}
+                  <p class="font-weight pl-5"><b>Antal personer: </b> {{ reser.person }}</p>
+                  <p class="font-weight pl-5"><b>Pris for værelse: </b>{{ reser.pris }}</p>
+                  <p class="font-weight pl-5"><b>Ankomst dato: </b>{{ reser.dato }}</p>
+                  <p class="font-weight pl-5"><b>Afrejse dato: </b>{{ reser.rejse }}</p>
+                                
+                                <!--<label for="reser.dato"><b>  ankomst: </b></label>
+                                {{reser.dato}}-->
   <!--<input type="date" id="dato">-->
 
-  <label for="reser.rejse"><b>afrejse:</b></label>{{reser.rejse}}
-  <!--<input type="date" id="rejse">-->
+  <!--<label for="reser.rejse"><b>  afrejse:</b></label>{{reser.rejse}}
+  <input type="date" id="rejse">-->
 
-  <button onclick="calculateDateDifference()">Calculate Difference</button>
+  <!--<button onclick="calculateDateDifference()">Calculate Difference</button>-->
 
-  <p id="result"></p>
+  <p id="date_diff"></p>
 
   <script>
     function calculateDateDifference() {
@@ -48,23 +48,25 @@
       var daysDifference = Math.ceil(timeDifference / (1000 * 3600 * 24));
 
       document.getElementById('result').innerHTML = 'Difference in days: ' + daysDifference;
+
     }
   </script>
-                                <p class="font-weight pl-5"><b>total pris: </b>{{ reser.endelig_pris }}</p>
-                            </div>
-                            <input type="checkbox" name="items[]" class="form-check-input" >
-                                    <label class="form-check-label"> + morgenmad</label>
-                                    {% if checkbox == True %}
-                                    + 75 kr.
-                                    {% else %}
-                                    0 kr
-                                    {% endif %}
-                            <p><b><u>Kontakt (mail/tlf): </b></u>{{ reser.kontakt }}</p>
-                        </div>
-                    </div>
-                    <hr />
+  <p class="font-weight pl-5"><b>Antal overnatninger: </b>{{ date_diff }}</p>
+        <p class="font-weight pl-5"><b>total pris: </b>{{ reser.endelig_pris }}</p>
+          </div>
+          <input type="checkbox" name="items[]" class="form-check-input" >
+            <label class="form-check-label"> + morgenmad</label>
+                {% if checkbox.selected.value == True %}
+                  + 75 kr.
+                {% else %}
+                  0 kr
+                {% endif %}
+              <p><b><u>Kontakt (mail/tlf): </b></u>{{ reser.kontakt }}</p>
+            </div>
+          </div>
+          <hr />
                     
-                {% endfor %}
+          {% endfor %}
                 </div>
             </div>
         </div>
@@ -157,15 +159,15 @@
         }
       </script>-->
 
-      <label for="reser.dato">Date 1:</label>
-  <!--<input type="date" id="dato">-->
+      <!--<label for="reser.dato">Date 1:</label>
+  <input type="date" id="dato">-->
 
-  <label for="reser.rejse">Date 2:</label>
-  <!--<input type="date" id="rejse">-->
+  <!--<label for="reser.rejse">Date 2:</label>
+  <input type="date" id="rejse">-->
 
-  <button onclick="calculateDateDifference()">Calculate Difference</button>
+  <!--<button onclick="calculateDateDifference()">Calculate Difference</button>
 
-  <p id="result"></p>
+  <p id="result"></p>-->
 
   <script>
     function calculateDateDifference() {
