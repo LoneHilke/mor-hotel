@@ -54,12 +54,12 @@
 <h3>En mulighed om sommeren er at sove i telt i haven</h3>
 
 {% for beskri in beskrivelse %}
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-sm card-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-target="#beskrivelse-{{beskrivelse.pk}}">
       Beskrivelse af telt {{ beskri.telt }}
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="beskrivelse" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -79,7 +79,7 @@
             <p><b>Beskrivelse: </b>{{beskri.beskrivelse }}</p>
             <p><b>Pris pr. person: </b>{{beskri.pris }}</p>
             <p><b>Antal personer: </b>{{beskri.antal }}</p>
-            <p><b>ekstra opredning: </b>{{beskri.opred }}
+            <!--<p><b>ekstra opredning: </b>{{beskri.opred }}-->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary rounded-pill" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false"><a href="{% url 'reserver' %}">Gå til reservation</a></button>
